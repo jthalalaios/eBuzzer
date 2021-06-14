@@ -1,4 +1,4 @@
-# eBuzzer is a web application, ordering food
+# eBuzzer is a web application, ordering food, creating user, login, edit user profile, search users, search pre orders and finally history of orders
 you have to config the confing.php (includes/config.php)
 
 The site is available at:  https://zafora.ece.uowm.gr/~ictest00592/eBuzzer
