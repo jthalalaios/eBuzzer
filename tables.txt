@@ -58,5 +58,5 @@ CREATE TABLE history(
   FOREIGN KEY (idh_prod) REFERENCES product (product_id)) ;
 
 
-After creating the database and inserting the tables, you have to use this following command: SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+After creating the database and inserting the tables, you have to use this following command inside mysql: SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
