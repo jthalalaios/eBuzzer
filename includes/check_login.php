@@ -10,9 +10,9 @@ function returnheader($location){
 if(!empty($_POST['usname']) && (!empty($_POST['pass']))) 
     {     
         $name = stripslashes($_POST["usname"]); 
-		$name=filter_var($_POST["usname"]);
+	$name=filter_var($_POST["usname"]);
         $password1 = stripslashes($_POST["pass"]); 
-		$password1=filter_var($_POST["pass"]);
+	$password1=filter_var($_POST["pass"]);
         $en_pass=md5($password1);
 		try 
 		{
