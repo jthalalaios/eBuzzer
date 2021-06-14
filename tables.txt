@@ -1,0 +1,66 @@
+CREATE DATABASE ebuzzer
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci; 
+
+CREATE TABLE user (
+  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  first_name varchar(20) DEFAULT NULL ,
+  last_name varchar(30) DEFAULT NULL,
+  username varchar(20) DEFAULT NULL,
+  password varchar(32) DEFAULT NULL,
+  type int(1) DEFAULT 0,
+  email varchar(30) DEFAULT 0,
+  address varchar(30) DEFAULT 0,	
+  telephone bigint(10) DEFAULT NULL);
+
+CREATE TABLE categories(
+  cat_id int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  cat_image varchar(255) DEFAULT NULL,
+  cat_checkvalue int(1) DEFAULT 0,
+  cat_name varchar(30) DEFAULT NULL) ;
+
+CREATE TABLE product(
+  product_id int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  product_cat_id int(5) DEFAULT NULL,	
+  product_name varchar(20) DEFAULT NULL,
+  ylika varchar(20) DEFAULT NULL,
+  sos varchar(20) DEFAULT NULL,
+  quantity int(3) DEFAULT NULL,
+  value float(2)  DEFAULT NULL,
+  image varchar(255) NOT NULL,
+  FOREIGN KEY (product_cat_id) REFERENCES categories (cat_id)) ;
+
+CREATE TABLE orders(
+  order_id int(5) NOT NULL DEFAULT 0, 
+  id_user int(11) DEFAULT NULL,
+  id_prod int(5) DEFAULT NULL,
+  id_pur int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  posothta int(3) DEFAULT NULL,	
+  s_date datetime DEFAULT NULL,
+  total varchar(250) DEFAULT NULL,	
+  details varchar(250) NOT NULL DEFAULT "" ,
+  FOREIGN KEY (id_user) REFERENCES user (id),
+  FOREIGN KEY (id_prod) REFERENCES product (product_id)) ;
+
+
+CREATE TABLE history(
+  history_id int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ idh_user int(11) DEFAULT NULL,
+ idh_prod int(5) DEFAULT NULL,
+ id_pur int(5) DEFAULT NULL,
+  posothta  int(3) DEFAULT NULL,	
+  s_date datetime DEFAULT NULL,
+  total varchar(250) DEFAULT NULL,	
+  details varchar(250) NOT NULL DEFAULT "" ,
+  FOREIGN KEY (idh_user) REFERENCES user (id),
+  FOREIGN KEY (idh_prod) REFERENCES product (product_id)) ;
+
+CREATE TABLE esp(
+  id_esp int(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id_order int(5) DEFAULT NULL,
+  status int(1) DEFAULT NULL,	
+FOREIGN KEY (id_order) REFERENCES orders (order_id)) ;
+
+
+
+
