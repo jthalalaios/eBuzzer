@@ -17,7 +17,7 @@ require_once ('cart-popover.php');
 	<div class="modall-content">
 	<span class="closebutor">&times; </span>
 	<p> Επιλέξτε την κατηγορία από το προϊόν που επιθυμείτε να παραγγείλετε! </p>
-		<?php require_once ('test2.php'); ?>
+		<?php require_once ('select_category2.php'); ?>
 	</div></div>
 </div>
 <div class="failed" id="failed-class">
