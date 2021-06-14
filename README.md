@@ -3,4 +3,4 @@ you have to config the confing.php (includes/config.php)
 
 The site is available at:  https://zafora.ece.uowm.gr/~ictest00592/eBuzzer
 
-Menu and messages are on greek but dont worry, also sql table in on txt file
+Menu and messages are on greek but dont worry, you can see and get for free the code ... Also you have to configure the mysql database, list of tables is upload on a txt file named "tables.txt".
