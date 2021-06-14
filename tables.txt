@@ -1,3 +1,5 @@
+mysql database and tables:
+
 CREATE DATABASE ebuzzer
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci; 
@@ -55,12 +57,6 @@ CREATE TABLE history(
   FOREIGN KEY (idh_user) REFERENCES user (id),
   FOREIGN KEY (idh_prod) REFERENCES product (product_id)) ;
 
-CREATE TABLE esp(
-  id_esp int(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  id_order int(5) DEFAULT NULL,
-  status int(1) DEFAULT NULL,	
-FOREIGN KEY (id_order) REFERENCES orders (order_id)) ;
 
-
-
+After creating the database and inserting the tables, you have to use this following command: SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
