@@ -69,6 +69,39 @@ require_once('../includes/js/messages.js');
 <?php require_once('../includes/fetch/showUsers.php'); ?>
 	</div>
 </div></div>
+<div class="viewpage_search_users">
+<?php
+	if($page>1)
+    {
+		echo "<a href='searchUsers.php?page=".($page-1)."' class='btnview viewbutton '>Προηγούμενη</a>";
+    }
+  for($i=1;$i<=$total_pages;$i++)
+    {
+		if($page>1) {
+        echo "<a href='searchUsers.php?page=".$i."'>".$i."</a>" ;
+		}
+    }
+	
+	if($i>$page) {
+	if ($rs_result>=$num_per_page) 
+    {
+		echo "<a href='searchUsers.php?page=".($page+1)."' class='btnview viewbutton'>Επόμενη</a>";
+		for($i=1;$i<=$total_pages;$i++)
+    {
+		if($page>=1) {
+        echo "<a href='searchUsers.php?page=".$i."'>".$i."</a>" ;
+		}
+    }
+    }
+    }
+	if ($page<=0) {
+		returntostart("searchUsers.php");
+	}
+	if ($page>$total_pages) {
+		returntostart("searchUsers.php");
+	}
+    ?>
+</div>
 <?php 
 require_once('../includes/js/searchUser.js');  
 require_once ('../includes/footer.php'); 
