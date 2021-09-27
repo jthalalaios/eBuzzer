@@ -54,7 +54,7 @@ $output = '';
 		<?php
 			if(isset($_GET['categories']))
 			{
-				$catid=filter_var($_GET['categories']);
+				$catid=filter_var($_GET['categories'],FILTER_SANITIZE_NUMBER_INT);
 			}
 					if(isset($_GET['categories']))
 					{
