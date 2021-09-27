@@ -1,5 +1,3 @@
-mysql database and tables:
-
 CREATE DATABASE ebuzzer
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci; 
@@ -25,38 +23,39 @@ CREATE TABLE product(
   product_id int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   product_cat_id int(5) DEFAULT NULL,	
   product_name varchar(20) DEFAULT NULL,
-  ylika varchar(20) DEFAULT NULL,
-  sos varchar(20) DEFAULT NULL,
-  quantity int(3) DEFAULT NULL,
   value float(2)  DEFAULT NULL,
   image varchar(255) NOT NULL,
   FOREIGN KEY (product_cat_id) REFERENCES categories (cat_id)) ;
 
 CREATE TABLE orders(
-  order_id int(5) NOT NULL DEFAULT 0, 
+  order_id int(5)  NOT NULL PRIMARY KEY DEFAULT 0, 
   id_user int(11) DEFAULT NULL,
-  id_prod int(5) DEFAULT NULL,
-  id_pur int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  posothta int(3) DEFAULT NULL,	
   s_date datetime DEFAULT NULL,
   total varchar(250) DEFAULT NULL,	
-  details varchar(250) NOT NULL DEFAULT "" ,
-  FOREIGN KEY (id_user) REFERENCES user (id),
-  FOREIGN KEY (id_prod) REFERENCES product (product_id)) ;
+  status int(1) NOT NULL DEFAULT 0,		
+  FOREIGN KEY (id_user) REFERENCES user (id)) ;
 
+
+CREATE TABLE purchase(
+  id_pur int(5)  NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+  id_order int(5) DEFAULT NULL,
+  id_prod int(5) DEFAULT NULL,
+  details varchar(250) NOT NULL DEFAULT "" ,
+  posothta int(3) DEFAULT NULL,
+  FOREIGN KEY (id_prod) REFERENCES product(product_id), 		
+  FOREIGN KEY (id_order) REFERENCES orders (order_id)) ;
 
 CREATE TABLE history(
   history_id int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
- idh_user int(11) DEFAULT NULL,
- idh_prod int(5) DEFAULT NULL,
- id_pur int(5) DEFAULT NULL,
-  posothta  int(3) DEFAULT NULL,	
-  s_date datetime DEFAULT NULL,
-  total varchar(250) DEFAULT NULL,	
-  details varchar(250) NOT NULL DEFAULT "" ,
-  FOREIGN KEY (idh_user) REFERENCES user (id),
-  FOREIGN KEY (idh_prod) REFERENCES product (product_id)) ;
+  history_oder_id int(5) DEFAULT NULL,
+  FOREIGN KEY (history_oder_id) REFERENCES orders(order_id)) ;
 
 
-After creating the database and inserting the tables, you have to use this following command inside mysql: SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
-
+CREATE TABLE esp(
+  id_esp int(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  status int(1) NOT NULL DEFAULT 0,
+  available int(1) NOT NULL DEFAULT 1,
+  image varchar(255) DEFAULT NULL,
+  order_id_esp int(5) DEFAULT NULL,
+FOREIGN KEY (order_id_esp) REFERENCES orders(order_id));				
+ 
