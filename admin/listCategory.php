@@ -1,12 +1,11 @@
 <?php
 $con=db_open();
 $output = '';
-			$sql = "SELECT * FROM categories";
-			$query1 = $con->prepare($sql);
-			$query1->bindParam(':cat_id',$cat_id);
-			$query1->execute(array(':cat_id' => $cat_id));
-			$count = $query1->fetchAll();
-			
+$sql = "SELECT * FROM categories";
+$query1 = $con->prepare($sql);
+$query1->bindParam(':cat_id',$cat_id);
+$query1->execute(array(':cat_id' => $cat_id));
+$count = $query1->fetchAll();	
 foreach($count as $row)
  {
   $output .= '
