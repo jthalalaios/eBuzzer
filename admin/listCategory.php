@@ -10,21 +10,22 @@ foreach($count as $row)
  {
   $output .= '
   <table class="imagetable;">  
-			<tr>
-			<td>
-			<form id="order" name="order" action="selectProduct.php" method="post">
-			<input name="Submit" type="image" src="../includes/category/'.$row["cat_image"].'" value="id" class="list-category"  onclick="return setHidden("id");"/>  
-			<h5 class="text-info">'.$row["cat_name"].'</h5> 
-		  </td> </tr> <tr><td> 
-		   <input type="hidden" id="image_id" name="image_name" value="'.$row["cat_id"].'" /> 
-			</form>
-			</td>
-			</tr>
-            </table> 
+	<tr>
+	<td>
+	<form id="order" name="order" action="selectProduct.php" method="post">
+		<input name="Submit" type="image" src="../includes/category/'.$row["cat_image"].'" value="id" class="list-category"  onclick="return setHidden("id");"/>  
+		<h5 class="text-info">'.$row["cat_name"].'</h5> 
+	  </td> </tr> <tr><td> 
+	        <input type="hidden" id="image_id" name="image_name" value="'.$row["cat_id"].'" /> 
+	</form>
+	</td>
+	</tr>
+    </table> 
   '; 
  }
  echo $output;
-if ($output==null) { 
+if ($output==null)
+{ 
 	echo "Δεν Υπάρχει Κανένα Προιον σε αυτήν την Κατηγορία!";
 }
 ?>	
