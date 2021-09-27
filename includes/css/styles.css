@@ -2901,6 +2901,13 @@ float:center;
 margin: 10 20px;
 }
 
+.viewpage_search_users {
+text-align:center;
+float:center;
+margin: 10 20px;
+margin-top:-4.7%;
+}
+
 .viewbutton {
 background-color:#545d6f;
 text-align:center;
