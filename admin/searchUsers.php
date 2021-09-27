@@ -1,5 +1,6 @@
 <?php 
 require_once ('header.php');
+require_once ('../includes/functions.php');
 require_once('../includes/js/messages.js');
 ?>
 <div class="container">
