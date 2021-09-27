@@ -1,6 +1,15 @@
 <?php
-
 $con=db_open();
+$num_per_page=7;
+if(isset($_GET["page"]))
+{
+	$page=filter_var($_GET["page"],FILTER_SANITIZE_NUMBER_INT);
+}
+else
+{
+	$page=1;
+}
+$start_from=($page-1)*7;
 try
 {	
  $sql1 = "SELECT * FROM user";
@@ -45,12 +54,16 @@ if($run!=$query->fetchALL() )
   ';
  }
  echo $output;
+ echo '</table>';
 }
 else
 {
  echo "Δεν βρέθηκε κανένας χρήστης";
 }
 require_once('../includes/edits/showModalUsers.php');
+$rs_result=$query->rowCount();
+$total_records=$query->columnCount();
+$total_pages=ceil($total_records/$num_per_page);
 $con=null;
 ?>
  
