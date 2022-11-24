@@ -1,8 +1,6 @@
 # eBuzzer is a web application, ordering food, creating user, login, edit user profile, search users +dynamic search(users/orders) , view pre orders and finally view history of orders
 you have to config the confing.php (includes/config.php)
 
-The site is available at:  https://159.65.57.154/eBuzzer
-
 you can log in as administrator with the credentials below.
 username: tharas
 password: 1234asd
